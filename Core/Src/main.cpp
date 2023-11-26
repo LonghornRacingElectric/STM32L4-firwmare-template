@@ -20,6 +20,7 @@
 #include "main.h"
 #include "can.h"
 #include "gpio.h"
+#include "../../Libs/LonghornLibrary/faults.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -98,6 +99,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    int x = 5;
+    FAULT_CLEARALL(&x);
   }
   /* USER CODE END 3 */
 }
