@@ -90,7 +90,11 @@ int main(void)
   MX_CAN1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  volatile uint32_t last_time_recorded = 0;
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+  HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(SysTick_IRQn);
   /* USER CODE END 2 */
 
   /* Infinite loop */
